@@ -1,7 +1,11 @@
-plugins {
-    // Apply the foojay-resolver plugin to allow automatic download of JDKs
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
-}
-
 rootProject.name = "instrumenting-java-code"
-include("app")
+
+include(
+  "app",
+  "manual",
+  "auto:proxy",
+  "auto:aspectj",
+  "auto:bytebuddy",
+  "auto:javaagent",
+  "auto:compile-time"
+)

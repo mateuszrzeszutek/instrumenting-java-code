@@ -3,5 +3,4 @@
 - actual demo with the code samples, all code should be runnable in IntelliJ
 - build a presentation with beamer
 - mention private/static methods/constructors in proxy/AspectJ
-- consider Devoxx Belgium
 - watch Jason's presentations

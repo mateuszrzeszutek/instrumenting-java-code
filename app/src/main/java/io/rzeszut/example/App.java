@@ -1,4 +1,4 @@
-package org.example;
+package io.rzeszut.example;
 
 public class App {
   public String getGreeting() {
