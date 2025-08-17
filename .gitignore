@@ -7,5 +7,5 @@ build
 .idea
 
 .DS_Store
-presentation/slides.pdf
+*.pdf
 _extensions
