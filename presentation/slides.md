@@ -13,7 +13,7 @@ fontsize: 12pt
 ::: columns
 
 :::: column
-![OTel](presentation/img/opentelemetry-horizontal-color.png)\
+![OTel](img/opentelemetry-horizontal-color.png)\
 ::::
 
 :::: column
@@ -149,4 +149,17 @@ var bytes = ClassFile.of()
 
 # Byte Buddy
 
-intro to byte buddy
+```java
+try (var unloadedClass = new ByteBuddy()
+    .subclass(Object.class)
+    .name("org.example.Generated")
+    .method(ElementMatchers.named("toString"))
+    .intercept(FixedValue.value("Hello World"))
+    .make()) {
+
+  var bytes = unloadedClass.getBytes();
+}
+```
+
+# Javaagent
+

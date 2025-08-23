@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-  implementation("org.aspectj:aspectjweaver:1.9.24")
-  implementation("org.springframework:spring-aop:6.2.10")
+  implementation(libs.aspectj)
+  implementation(libs.spring.aop)
 }
 
 application {

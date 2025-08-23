@@ -8,8 +8,8 @@ build: slides.pdf conspect.pdf
 
 slides.pdf: presentation/slides.md
 	@echo "Building slides ..."
-	@pandoc -t beamer -f markdown+implicit_figures presentation/slides.md -o presentation/slides.pdf
+	@cd presentation && pandoc -t beamer -f markdown+implicit_figures slides.md -o slides.pdf
 
 conspect.pdf: presentation/conspect.md
 	@echo "Building conspect ..."
-	@pandoc presentation/conspect.md -o presentation/conspect.pdf
+	@cd presentation && pandoc conspect.md -o conspect.pdf

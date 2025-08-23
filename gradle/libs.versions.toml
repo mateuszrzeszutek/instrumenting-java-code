@@ -1,6 +1,7 @@
-[versions]
-junit = "5.11.3"
-
 [libraries]
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit" }
+aspectj = { module = "org.aspectj:aspectjweaver", version = "1.9.24" }
+bytebuddy = { module = "net.bytebuddy:byte-buddy", version = "1.17.6" }
+h2 = { module = "com.h2database:h2", version = "2.3.232" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version = "5.13.4" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version = "1.13.4" }
+spring-aop = { module = "org.springframework:spring-aop", version = "6.2.10" }
