@@ -9,3 +9,6 @@ build
 .DS_Store
 *.pdf
 _extensions
+
+# Ignore the text of the conspect
+presentation/conspect.md

@@ -209,8 +209,28 @@ Premain-Class: org.example.MyJavaagent
 
 # Loading, Linking, Initializing
 
-TODO describe how JVM loads classes, and where the javaagent fits in
+## 1. Loading
 
+- Classloaders: bootstrap, platform, system -- and others;
+- Super classes and interfaces are resolved at this point too;
+- This is where javaagent instrumentation kicks in;
+- `Class.forName(name, false, cl)` will load, but not link & initialize the class.
+
+# Loading, Linking, Initializing
+
+## 2. Linking
+
+- Verification: class is valid and does not violate the semantics of Java;
+- Preparation: allocates and prepares static fields (does not execute `<clinit>`!);
+- Resolution: bytecode instructions that refer to other symbols in the constant pool (e.g. fields, methods) must be resolved.
+
+# Loading, Linking, Initializing
+
+## 3. Initializing
+
+- Executes the `<clinit>` method (static class initialization);
+- Initialization is synchronized, which is often used in e.g. the `Holder` singleton pattern;
+- Triggered by some of the JVM instructions (`new`, `putstatic`, `getstatic`, `invokestatic`), method handles, reflection, and subclass initialization.
 
 # JVM specification
 
@@ -247,7 +267,37 @@ $\rightarrowtail IJ$
 
 # Compile-time instrumentation
 
+What if you can't use javaangents?
 
+Need to instrument Android applications?
+
+Or need to modify the bytecode and recompile a library?
+
+# Compile-time instrumentation
+
+```kotlin
+plugins {
+  id("net.bytebuddy.byte-buddy-gradle-plugin")
+}
+
+byteBuddy {
+  transformation {
+    plugin = MyCompileTimePlugin::class.java
+  }
+}
+```
+
+$\rightarrowtail IJ$
+
+# Compile-time instrumentation
+
+We can check the compiled code for changes!
+
+```shell
+javap -c App
+```
+
+$\rightarrowtail sh$
 
 # Thank you!
 

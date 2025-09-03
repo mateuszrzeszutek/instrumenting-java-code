@@ -29,3 +29,11 @@
 ```shell
 ./gradlew -q :app:runWithJavaagent
 ```
+
+## App instrumented with compile-time instrumentation
+
+Uncomment the `instrumentation.compile-time` plugin, and run
+
+```shell
+./gradlew -q :app:run
+```
