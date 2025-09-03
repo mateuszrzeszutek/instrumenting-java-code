@@ -6,6 +6,5 @@ include(
   "auto:proxy",
   "auto:aspectj",
   "auto:bytebuddy",
-  "auto:javaagent",
-  "auto:compile-time"
+  "auto:javaagent"
 )

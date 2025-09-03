@@ -6,6 +6,8 @@ theme: Copenhagen
 colortheme: seahorse
 fonttheme: professionalfonts
 fontsize: 12pt
+urlcolor: blue
+linkstyle: bold
 ---
 
 # Who am I?
@@ -48,6 +50,8 @@ public interface Supplier<T> {
   T get();
 }
 ```
+
+$\rightarrowtail IJ$
 
 # Manual instrumentation
 
@@ -92,6 +96,8 @@ var timedStatement = Proxy.newProxyInstance(
 );
 ```
 
+$\rightarrowtail IJ$
+
 # Code generation: AOP, Spring, AspectJ
 
 `java.util.Proxy` can generate implementations for interfaces, but not classes or abstract classes.
@@ -105,6 +111,8 @@ public @interface Timed {
 }
 ```
 
+$\rightarrowtail IJ$
+
 # Code generation: other utilities
 
 - [java.util.Proxy](https://docs.oracle.com/javase/8/docs/technotes/guides/reflection/proxy.html)
@@ -115,6 +123,10 @@ public @interface Timed {
 - [Class-File API](https://openjdk.org/jeps/457)
 - [Byte Buddy](https://bytebuddy.net/)
 - ...
+
+# Code generation
+
+Task: generate a dynamic class that returns `"Hello World"` when `.toString()` is called.
 
 # Code generation: ASM
 
@@ -147,7 +159,11 @@ var bytes = ClassFile.of()
         ));
 ```
 
-# Byte Buddy
+# JVM specification
+
+For the interested, look up the JVM specification chapter 6: [The Java Virtual Machine Instruction Set](https://docs.oracle.com/javase/specs/jvms/se24/html/jvms-6.html)
+
+# Code generation: Byte Buddy
 
 ```java
 try (var unloadedClass = new ByteBuddy()
@@ -161,5 +177,97 @@ try (var unloadedClass = new ByteBuddy()
 }
 ```
 
+$\rightarrowtail IJ$
+
 # Javaagent
+
+A javaagent is a special type of Java application that can be attached to a JVM process and instrument it via the Java [Instrumentation API](https://docs.oracle.com/en/java/javase/24/docs/api/java.instrument/java/lang/instrument/package-summary.html).
+
+```shell
+java -javaagent:opentelemetry-javaagent.jar
+     -jar my-app.jar
+```
+
+# Javaagent
+
+Javaagent main class:
+
+```java
+class MyJavagent {
+  public static void premain(
+        String agentArgs,
+        Instrumentation inst) {
+    System.out.println("before main()");
+  }
+}
+```
+
+JAR manifest attributes:
+```properties
+Premain-Class: org.example.MyJavaagent
+```
+
+# Loading, Linking, Initializing
+
+TODO describe how JVM loads classes, and where the javaagent fits in
+
+
+# JVM specification
+
+For the interested, look up the JVM specification chapter 5: [Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se24/html/jvms-5.html)
+
+# Java Instrumentation API
+
+```java
+interface Instrumentation {
+  void addTransformer(ClassFileTransformer, boolean);
+  boolean removeTransformer(ClassFileTransformer);
+  void retransformClasses(Class<?>...);
+  void redefineClasses(ClassDefinition...);
+  // ...
+}
+```
+
+# Java Instrumentation API
+
+```java
+interface ClassFileTransformer {
+  byte[] transform(
+      Module module,
+      ClassLoader loader,
+      String className,
+      Class<?> classBeingRedefined,
+      ProtectionDomain protectionDomain,
+      byte[] classfileBuffer);
+   // ...
+}
+```
+
+$\rightarrowtail IJ$
+
+# Compile-time instrumentation
+
+
+
+# Thank you!
+
+::: columns
+
+:::: column
+
+## Presentation sources
+
+<https://github.com/mateuszrzeszutek/instrumenting-java-code>
+
+::::
+
+:::: column
+
+## QR Code
+
+![QR](img/presentation-repo-qr.png)\
+
+::::
+
+:::
 
