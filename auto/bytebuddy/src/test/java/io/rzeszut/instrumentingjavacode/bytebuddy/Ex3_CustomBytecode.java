@@ -50,7 +50,6 @@ class Ex3_CustomBytecode {
 
     @Override
     public Size apply(MethodVisitor mv, Implementation.Context implementationContext, MethodDescription instrumentedMethod) {
-      // todo add a field?
       mv.visitLdcInsn(10);
       mv.visitVarInsn(Opcodes.ILOAD, 1);
       mv.visitInsn(Opcodes.IADD);

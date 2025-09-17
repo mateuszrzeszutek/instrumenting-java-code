@@ -30,5 +30,6 @@ tasks {
 
     classpath = files(named("jar").get())
     jvmArgs("-javaagent:${javaagent.resolve().first()}")
+    jvmArgs("-Dnet.bytebuddy.safe=true")
   }
 }

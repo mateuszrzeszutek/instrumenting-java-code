@@ -3,14 +3,13 @@ package io.rzeszut.instrumentingjavacode.javaagent;
 import net.bytebuddy.agent.builder.AgentBuilder;
 import net.bytebuddy.asm.Advice;
 
-import java.io.IOException;
 import java.lang.instrument.Instrumentation;
 
 import static net.bytebuddy.matcher.ElementMatchers.named;
 
 public final class MyJavaagent {
 
-  public static void premain(String agentArgs, Instrumentation inst) throws IOException {
+  public static void premain(String agentArgs, Instrumentation inst) {
     System.out.println("before main()");
 
     new AgentBuilder.Default()

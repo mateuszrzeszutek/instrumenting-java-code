@@ -2,6 +2,7 @@
 title: Instrumenting Java Code
 author: Mateusz Rzeszutek
 date: 18th September 2025
+aspectratio: 169
 theme: Copenhagen
 colortheme: seahorse
 fonttheme: professionalfonts
@@ -51,7 +52,7 @@ public interface Supplier<T> {
 }
 ```
 
-$\rightarrowtail IJ$
+$\rightarrowtail IDE$
 
 # Manual instrumentation
 
@@ -96,7 +97,7 @@ var timedStatement = Proxy.newProxyInstance(
 );
 ```
 
-$\rightarrowtail IJ$
+$\rightarrowtail IDE$
 
 # Code generation: AOP, Spring, AspectJ
 
@@ -111,7 +112,7 @@ public @interface Timed {
 }
 ```
 
-$\rightarrowtail IJ$
+$\rightarrowtail IDE$
 
 # Code generation: other utilities
 
@@ -177,7 +178,7 @@ try (var unloadedClass = new ByteBuddy()
 }
 ```
 
-$\rightarrowtail IJ$
+$\rightarrowtail IDE$
 
 # Javaagent
 
@@ -263,7 +264,7 @@ interface ClassFileTransformer {
 }
 ```
 
-$\rightarrowtail IJ$
+$\rightarrowtail IDE$
 
 # Compile-time instrumentation
 
@@ -287,7 +288,7 @@ byteBuddy {
 }
 ```
 
-$\rightarrowtail IJ$
+$\rightarrowtail IDE$
 
 # Compile-time instrumentation
 
@@ -320,4 +321,6 @@ $\rightarrowtail sh$
 ::::
 
 :::
+
+# Q&A
 

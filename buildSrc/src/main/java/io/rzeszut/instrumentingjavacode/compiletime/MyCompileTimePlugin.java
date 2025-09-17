@@ -7,8 +7,6 @@ import net.bytebuddy.dynamic.ClassFileLocator;
 import net.bytebuddy.dynamic.DynamicType;
 import net.bytebuddy.matcher.ElementMatcher;
 
-import java.io.IOException;
-
 import static net.bytebuddy.matcher.ElementMatchers.named;
 
 public final class MyCompileTimePlugin implements Plugin {

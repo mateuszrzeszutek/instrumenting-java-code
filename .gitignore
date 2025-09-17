@@ -12,3 +12,4 @@ _extensions
 
 # Ignore the text of the conspect
 presentation/conspect.md
+*.rtf
