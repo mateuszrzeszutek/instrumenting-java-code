@@ -1,7 +1,7 @@
 ---
 title: Instrumenting Java Code
 author: Mateusz Rzeszutek
-date: 18th September 2025
+date: 21st October 2025
 aspectratio: 169
 theme: Copenhagen
 colortheme: seahorse
@@ -99,7 +99,7 @@ var timedStatement = Proxy.newProxyInstance(
 
 $\rightarrowtail IDE$
 
-# Code generation: AOP, Spring, AspectJ
+# Code generation: `java.util.Proxy`
 
 `java.util.Proxy` can generate implementations for interfaces, but not classes or abstract classes.
 
