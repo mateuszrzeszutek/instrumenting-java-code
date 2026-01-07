@@ -9,3 +9,7 @@ We will:
 - Instrument a Java application in build time.
 
 All with actual running code examples.
+
+## Tags
+
+java, jvm, javaagent, instrumentation
