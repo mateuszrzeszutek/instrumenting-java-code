@@ -13,3 +13,18 @@ All with actual running code examples.
 ## Tags
 
 java, jvm, javaagent, instrumentation
+
+## Building slides
+
+```sh
+make install-deps
+make
+```
+
+## Installing necessary tools
+
+Make sure mise is installed (e.g. `brew install mise`, `sudo dnf -y install mise`).
+
+```sh
+mise install
+```

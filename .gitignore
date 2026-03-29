@@ -11,3 +11,9 @@ _extensions
 
 # Ignore the text of the conspect
 *.rtf
+
+# Eclipse JDTLS
+bin/
+.classpath
+.project
+.settings/
