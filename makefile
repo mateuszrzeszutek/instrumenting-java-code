@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 
 install-deps:
-	@./install_deps.sh
+	@./presentation/install_deps.sh
 
 build: slides.pdf
 
